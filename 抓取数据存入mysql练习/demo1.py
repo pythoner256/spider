@@ -3,7 +3,7 @@ from bs4 import BeautifulSoup
 import MySQLdb
 
 
-conn = MySQLdb.connect(host='localhost', port=3306, user='root', passwd='password', db='test2')
+conn = MySQLdb.connect(host='localhost', port=3306, user='root', passwd='password', db='test2'，charset='utf8')
 print(">>>已连接")
 cur = conn.cursor()
 cur.execute("DROP TABLE IF EXISTS COLOR")
