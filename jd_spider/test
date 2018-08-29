@@ -1,0 +1,25 @@
+url参数 时间戳  time.time()*100
+
+分析网页发现：每次打开一页网页只加载30条数据，总共60条数据，后半段通过异步加载的方式加载
+后半段请求url：extand_url = "https://search.jd.com/s_new.php?keyword=%E6%89%8B%E6%9C%BA&enc=utf-8&qrst=1&rt=1&stop=1&vt=2&wq=%E6%89%8B%E6%9C%BA&cid2=653&cid3=655&page={}&s=27&scrolling=y&log_id={}&tpl=3_M&show_items={}"
+
+
+第一个参数是page,这里后半段是偶数，第二个参数是log_id这个是时间戳，然后乘100得到的数值
+第三个参数就是show_items是商品的id，是前30条商品的id，这个可以通过网页源代码获取
+请求头加上Referer
+
+js加载广告类手机url https://ad.3.cn/ads/mgets?source=search_pc&skuids=AD_7283905,AD_7651951,AD_6029342,AD_5912045&callback=jQuery2284103&_=1535450043884
+每页有8个广告类：分两次请求第二次https://pf.3.cn/flags/mgets?source=search_pc&skuids=J_30938386316,J_31426982482,J_7621213,J_8790521&callback=jQuery2044193&_=1535450222534
+
+https://pf.3.cn/flags/mgets?source=search_pc&callback=jQuery9639936&_=1535450043891
+
+https://search.jd.com/Search?keyword=%E6%89%8B%E6%9C%BA&enc=utf-8&wq=%E6%89%8B%E6%9C%BA&pvid=a34bb34c0dd54c73b5c9d073d651a11b
+
+name //div[@id='name']/text()
+price
+pub  //ul[id='parameter2']/li[1]/@title
+bian_ma  //ul[id='parameter2']/li[4]/@title]
+pub_time  //ul[id='parameter2']/li[8]/@title]
+page  //ul[id='parameter2']/li[10]/@title]
+
+价格请求url = https://p.3.cn/prices/mgets?skuIds=J_ + sku
