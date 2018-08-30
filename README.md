@@ -5,6 +5,6 @@
 - [scrapy抓取腾讯深圳社招所有信息](https://github.com/pythoner256/spider/tree/master/tentcent_scrapy)
 - [scrapy抓取ITcast所有教师信息](https://github.com/pythoner256/spider/tree/master/itcast_scrapy)
 - [scrapy抓取豆瓣电影信息](https://github.com/pythoner256/spider/tree/master/scrapy_douban_movie)
-- [selenium使用](https://github.com/pythoner256/spider/tree/master/Selenium%2BPhantomJS)
+- [selenium处理js加载分页网站](https://github.com/pythoner256/spider/tree/master/Selenium%2BPhantomJS)
 
 
