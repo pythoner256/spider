@@ -87,8 +87,8 @@ def get_goods_info(goods_sku, goods_url_list):
     while True:
         response = requests.get(url=goods_url_list.pop(), headers=headers).text
         html = etree.HTML(response)
-        name_list = html.xpath("//div[@id='name']/div[@class='sku-name']/text()")[0].strip()  # 书本名包含.符号存入Mongo报错
-        name = name_list.split('.')[0] if '.' in name_list else name_list
+        name_list = html.xpath("//div[@id='name']/div[@class='sku-name']/text()")[0].strip()
+        name = name_list.split('.')[0] if '.' in name_list else name_list  # 书本名包含.符号存入Mongo报错
         goods_name.append(name)
         goods_data = html.xpath("//ul[@id='parameter2']/li/@title")
         goods_info.append(goods_data)
@@ -100,13 +100,16 @@ def get_goods_info(goods_sku, goods_url_list):
         # print(name, pub, bian_ma, pub_time, page)
 
         try:
-            price_url = "https://p.3.cn/prices/mgets?skuIds=J_" + str(goods_sku.pop())
+            # price_url = "https://p.3.cn/prices/mgets?skuIds=J_" + str(goods_sku.pop())
+            # 大量请求这个接口会返回{“error”:”pdos_captcha”}错误信息，加入pduid参数
+            price_url = 'https://p.3.cn/prices/mgets?pduid=' + str(random.randint(100000, 999999)) + '&skuIds=J_' + str(goods_sku.pop())
             response = requests.get(url=price_url, headers=headers).text
             price = json.loads(response)[0]['p']
-            goods_info.append(price)
+            goods_data.append(price)
         except Exception:
             pass
         if len(goods_url_list) == 0 and len(goods_sku) == 0:
+
             break
     return dict(zip(goods_name, goods_info))
 
