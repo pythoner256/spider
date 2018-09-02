@@ -6,6 +6,7 @@
 - [scrapy抓取ITcast所有教师信息](https://github.com/pythoner256/spider/tree/master/itcast_scrapy)
 - [scrapy抓取豆瓣电影信息](https://github.com/pythoner256/spider/tree/master/scrapy_douban_movie)
 - [selenium处理js加载分页网站](https://github.com/pythoner256/spider/tree/master/Selenium%2BPhantomJS)
+- [知乎用户爬虫](https://github.com/pythoner256/spider/tree/master/zhihuuser)
  - [一些爬虫总结，一些是用jupyter notebook写的html文件,可以下载用浏览器打开，一些是用xmind写的总结](https://github.com/pythoner256/spider/tree/master/%E7%88%AC%E8%99%AB%E6%80%BB%E7%BB%93)
 
 
